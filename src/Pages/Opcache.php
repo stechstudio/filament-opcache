@@ -6,6 +6,8 @@ use Appstract\Opcache\OpcacheFacade;
 use Filament\Notifications\Notification;
 use Filament\Pages\Actions\Action;
 use Filament\Pages\Page;
+use STS\LaravelFilamentOpcache\Widgets\HitAmountWidget;
+use STS\LaravelFilamentOpcache\Widgets\MemoryWidget;
 
 class Opcache extends Page
 {
@@ -44,6 +46,14 @@ class Opcache extends Page
                         Notification::make()->title('OPcache Disabled')->warning()->send();
                     }
                 }),
+        ];
+    }
+
+    protected function getHeaderWidgets(): array
+    {
+        return [
+            MemoryWidget::class,
+            HitAmountWidget::class,
         ];
     }
 }
