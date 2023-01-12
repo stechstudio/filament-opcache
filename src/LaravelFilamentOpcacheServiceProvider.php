@@ -1,3 +1,5 @@
+<?php
+
 namespace STS\LaravelFilamentOpcache;
 
 use Filament\PluginServiceProvider;
