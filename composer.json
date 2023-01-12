@@ -16,5 +16,12 @@
     ],
     "require": {
         "illuminate/support": "^8.0|^9.0"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "STS\\LaravelFilamentOpcache\\LaravelFilamentOpcacheServiceProvider"
+            ]
+        }
     }
 }
