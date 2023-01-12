@@ -56,4 +56,9 @@ class Opcache extends Page
             HitAmountWidget::class,
         ];
     }
+
+    protected function getHeaderWidgetsColumns(): int | array
+    {
+        return 3;
+    }
 }
