@@ -6,22 +6,30 @@ use Appstract\Opcache\OpcacheFacade;
 use Filament\Notifications\Notification;
 use Filament\Pages\Actions\Action;
 use Filament\Pages\Page;
+use Filament\Tables\Columns\BooleanColumn;
+use Filament\Tables\Columns\IconColumn;
+use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Concerns\InteractsWithTable;
+use Filament\Tables\Contracts\HasTable;
+use STS\LaravelFilamentOpcache\Models\Status;
 use STS\LaravelFilamentOpcache\Widgets\HitAmountWidget;
 use STS\LaravelFilamentOpcache\Widgets\MemoryWidget;
 
-class Opcache extends Page
+class StatusPage extends Page implements HasTable
 {
-    protected static ?string $title = 'OPcache';
+    use InteractsWithTable;
 
-    protected static ?string $navigationLabel = 'OPcache';
+    protected static ?string $title = 'OPcache Status';
 
-    protected static ?string $slug = 'opcache';
+    protected static ?string $navigationLabel = 'Status';
+
+    protected static ?string $slug = 'opcache-status';
 
     protected static ?string $navigationIcon = 'heroicon-o-database';
 
-    protected static string $view = 'filament.pages.opcache';
+    protected static string $view = 'laravel-filament-opcache::status';
 
-    protected static ?string $navigationGroup = 'System Management';
+    protected static ?string $navigationGroup = 'OPcache';
 
     protected function getActions(): array
     {
@@ -60,5 +68,18 @@ class Opcache extends Page
     protected function getHeaderWidgetsColumns(): int | array
     {
         return 3;
+    }
+
+    protected function getTableQuery() 
+    {
+        return Status::query();
+    }
+
+    protected function getTableColumns(): array 
+    {
+        return [
+            TextColumn::make('key'),
+            BooleanColumn::make('value'),
+        ];
     }
 }
