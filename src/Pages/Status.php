@@ -10,7 +10,7 @@ use Filament\Pages\Page;
 use Illuminate\Support\Str;
 use STS\LaravelFilamentOpcache\Memory;
 
-class StatusPage extends Page
+class Status extends Page
 {
     protected static ?string $title = 'OPcache Status';
 

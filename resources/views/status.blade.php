@@ -16,7 +16,7 @@
         <x-tables::container>
             <x-tables::table>
                 <x-slot name="header">
-                    <x-tables::header heading="Lifecycle" />
+                    <x-tables::header heading="{{ $activeTab }}" />
 
                     <x-tables::header-cell width="50%">Key</x-tables::header-cell>
                     <x-tables::header-cell>Value</x-tables::header-cell>

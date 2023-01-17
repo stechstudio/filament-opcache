@@ -11,7 +11,8 @@ use STS\LaravelFilamentOpcache\Widgets\MemoryWidget;
 class LaravelFilamentOpcacheServiceProvider extends PluginServiceProvider
 {
     protected array $pages = [
-        Pages\StatusPage::class,
+        Pages\Config::class,
+        Pages\Status::class,
     ];
 
     protected array $widgets = [
