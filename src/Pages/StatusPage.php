@@ -3,22 +3,15 @@
 namespace STS\LaravelFilamentOpcache\Pages;
 
 use Appstract\Opcache\OpcacheFacade;
+use Carbon\Carbon;
 use Filament\Notifications\Notification;
 use Filament\Pages\Actions\Action;
 use Filament\Pages\Page;
-use Filament\Tables\Columns\BooleanColumn;
-use Filament\Tables\Columns\IconColumn;
-use Filament\Tables\Columns\TextColumn;
-use Filament\Tables\Concerns\InteractsWithTable;
-use Filament\Tables\Contracts\HasTable;
-use STS\LaravelFilamentOpcache\Models\Status;
-use STS\LaravelFilamentOpcache\Widgets\HitAmountWidget;
-use STS\LaravelFilamentOpcache\Widgets\MemoryWidget;
+use Illuminate\Support\Str;
+use STS\LaravelFilamentOpcache\Memory;
 
-class StatusPage extends Page implements HasTable
+class StatusPage extends Page
 {
-    use InteractsWithTable;
-
     protected static ?string $title = 'OPcache Status';
 
     protected static ?string $navigationLabel = 'Status';
@@ -30,6 +23,10 @@ class StatusPage extends Page implements HasTable
     protected static string $view = 'laravel-filament-opcache::status';
 
     protected static ?string $navigationGroup = 'OPcache';
+
+    public $tabs = ['Lifecycle', 'Memory', 'Strings', 'Statistics', 'JIT'];
+
+    public $activeTab = 'lifecycle';
 
     protected function getActions(): array
     {
@@ -57,29 +54,46 @@ class StatusPage extends Page implements HasTable
         ];
     }
 
-    protected function getHeaderWidgets(): array
+    protected function getViewData(): array
     {
+        $status = OpcacheFacade::getStatus();
+
         return [
-            MemoryWidget::class,
-            HitAmountWidget::class,
-        ];
-    }
+            'lifecycle' => collect($status)
+                ->filter(fn($value, $key) => !is_array($value))
+                ->map(fn ($value) => $value ? 'true' : 'false'),
+            'memory' => collect($status['memory_usage'])
+                ->map(fn ($value, $key) => Str::contains($key, 'percentage') ?
+                    number_format($value, 2) . '%' :
+                    Memory::humanReadable($value)),
+            'strings' => collect($status['interned_strings_usage'])
+                ->map(fn ($value, $key) => Str::contains($key, 'number_of') ?
+                    number_format($value, 0) :
+                    Memory::humanReadable($value)),
+            'statistics' => collect($status['opcache_statistics'])
+                ->map(function ($value, $key) {
+                    if (Str::contains($key, 'ratio')) {
+                        return number_format($value, 2);
+                    }
 
-    protected function getHeaderWidgetsColumns(): int | array
-    {
-        return 3;
-    }
+                    if (Str::contains($key, 'rate')) {
+                        return number_format($value, 2) . '%';
+                    }
 
-    protected function getTableQuery() 
-    {
-        return Status::query();
-    }
+                    if (Str::contains($key, 'time')) {
+                        return (string)(new Carbon($value));
+                    }
 
-    protected function getTableColumns(): array 
-    {
-        return [
-            TextColumn::make('key'),
-            BooleanColumn::make('value'),
+                    return number_format($value, 0);
+                }),
+            'jit' => collect($status['jit'])
+                ->map(function ($value, $key) {
+                    if (is_bool($value)) {
+                        return $value ? 'true' : 'false';
+                    }
+
+                    return number_format($value, 0);
+                })
         ];
     }
 }

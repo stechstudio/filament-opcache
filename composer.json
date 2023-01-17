@@ -18,7 +18,8 @@
         "php": "^8.0",
         "filament/filament": "^2.0",
         "appstract/laravel-opcache": "^4.0",
-        "calebporzio/sushi": "^2.4"
+        "illuminate/support": "^8.6|^9.0",
+        "nesbot/carbon": "^2.0"
     },
     "extra": {
         "laravel": {
