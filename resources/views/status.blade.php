@@ -13,20 +13,22 @@
             </x-filament::tabs>
         </div>
 
-        <x-tables::container>
-            <x-tables::table>
-                <x-slot name="header">
-                    <x-tables::header-cell width="50%">Key</x-tables::header-cell>
-                    <x-tables::header-cell>Value</x-tables::header-cell>
-                </x-slot>
+        <div wire:poll.10s>
+            <x-tables::container>
+                <x-tables::table>
+                    <x-slot name="header">
+                        <x-tables::header-cell width="50%">Key</x-tables::header-cell>
+                        <x-tables::header-cell>Value</x-tables::header-cell>
+                    </x-slot>
 
-                @foreach($$activeTab as $key => $value)
-                    <x-tables::row>
-                        <x-tables::cell class="px-4 py-1">{{ $key }}</x-tables::cell>
-                        <x-tables::cell class="px-4 py-1">{{ $value }}</x-tables::cell>
-                    </x-tables::row>
-                @endforeach
-            </x-tables::table>
-        </x-tables::container>
+                    @foreach($$activeTab as $key => $value)
+                        <x-tables::row>
+                            <x-tables::cell class="px-4 py-1">{{ $key }}</x-tables::cell>
+                            <x-tables::cell class="px-4 py-1">{{ $value }}</x-tables::cell>
+                        </x-tables::row>
+                    @endforeach
+                </x-tables::table>
+            </x-tables::container>
+        </div>
     </div>
 </x-filament::page>
