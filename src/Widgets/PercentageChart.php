@@ -1,6 +1,6 @@
 <?php
 
-namespace STS\LaravelFilamentOpcache\Widgets;
+namespace STS\FilamentOpcache\Widgets;
 
 abstract class PercentageChart extends \Filament\Widgets\PieChartWidget
 {

@@ -1,14 +1,13 @@
 <?php
 
-namespace STS\LaravelFilamentOpcache;
+namespace STS\FilamentOpcache;
 
 use Filament\PluginServiceProvider;
 use Spatie\LaravelPackageTools\Package;
-use STS\LaravelFilamentOpcache\Pages;
-use STS\LaravelFilamentOpcache\Widgets\HitAmountWidget;
-use STS\LaravelFilamentOpcache\Widgets\MemoryWidget;
+use STS\FilamentOpcache\Pages;
+use STS\FilamentOpcache\Widgets;
 
-class LaravelFilamentOpcacheServiceProvider extends PluginServiceProvider
+class FilamentOpcacheServiceProvider extends PluginServiceProvider
 {
     protected array $pages = [
         Pages\Config::class,
@@ -16,8 +15,8 @@ class LaravelFilamentOpcacheServiceProvider extends PluginServiceProvider
     ];
 
     protected array $widgets = [
-        HitAmountWidget::class,
-        MemoryWidget::class,
+        Widgets\OpcacheHitsWidget::class,
+        Widgets\OpcacheMemoryWidget::class,
     ];
 
     public function configurePackage(Package $package): void

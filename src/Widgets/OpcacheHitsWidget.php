@@ -1,10 +1,10 @@
 <?php
 
-namespace STS\LaravelFilamentOpcache\Widgets;
+namespace STS\FilamentOpcache\Widgets;
 
 use Appstract\Opcache\OpcacheFacade;
 
-class HitAmountWidget extends PercentageChart
+class OpcacheHitsWidget extends PercentageChart
 {
     protected static ?string $heading = 'OPcache Hits';
 

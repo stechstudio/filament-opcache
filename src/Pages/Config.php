@@ -1,6 +1,6 @@
 <?php
 
-namespace STS\LaravelFilamentOpcache\Pages;
+namespace STS\FilamentOpcache\Pages;
 
 use Appstract\Opcache\OpcacheFacade;
 use Filament\Notifications\Notification;

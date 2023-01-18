@@ -1,6 +1,6 @@
 <?php
 
-namespace STS\LaravelFilamentOpcache\Pages;
+namespace STS\FilamentOpcache\Pages;
 
 use Appstract\Opcache\OpcacheFacade;
 use Carbon\Carbon;
@@ -8,7 +8,7 @@ use Filament\Notifications\Notification;
 use Filament\Pages\Actions\Action;
 use Filament\Pages\Page;
 use Illuminate\Support\Str;
-use STS\LaravelFilamentOpcache\Memory;
+use STS\FilamentOpcache\Memory;
 
 class Status extends Page
 {

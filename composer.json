@@ -1,11 +1,11 @@
 {
-    "name": "stechstudio/laravel-filament-opcache",
+    "name": "stechstudio/filament-opcache",
     "description": "Manage OPcache from your Filament admin panel.",
     "type": "library",
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "STS\\LaravelFilamentOpcache\\": "src/"
+            "STS\\FilamentOpcache\\": "src/"
         }
     },
     "authors": [
@@ -24,7 +24,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "STS\\LaravelFilamentOpcache\\LaravelFilamentOpcacheServiceProvider"
+                "STS\\FilamentOpcache\\FilamentOpcacheServiceProvider"
             ]
         }
     }

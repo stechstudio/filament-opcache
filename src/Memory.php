@@ -1,6 +1,6 @@
 <?php
 
-namespace STS\LaravelFilamentOpcache;
+namespace STS\FilamentOpcache;
 
 class Memory
 {

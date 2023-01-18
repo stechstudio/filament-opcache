@@ -1,10 +1,10 @@
 <?php
 
-namespace STS\LaravelFilamentOpcache\Widgets;
+namespace STS\FilamentOpcache\Widgets;
 
 use Appstract\Opcache\OpcacheFacade;
 
-class MemoryWidget extends PercentageChart
+class OpcacheMemoryWidget extends PercentageChart
 {
     protected static ?string $heading = 'OPcache Memory Usage';
 
