@@ -1,2 +1,15 @@
 # OPcache for Filament
-Manage OPcache from your Filament admin panel.
+This package allows you to view OPcache data from your Filament admin panel.
+
+| Status Page |
+|---|
+| ![Status Page](/screenshots/Status.png) |
+| Categorized view of all OPcache status data formatted for readability. |
+
+| Config Page |
+|---|
+| ![Config Page](/screenshots/Config.png) |
+
+| Widgets |
+|---|
+| ![Widgets](/screenshots/Widgets.png) |
