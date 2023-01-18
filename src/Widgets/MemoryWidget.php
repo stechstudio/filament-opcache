@@ -6,7 +6,7 @@ use Appstract\Opcache\OpcacheFacade;
 
 class MemoryWidget extends PercentageChart
 {
-    protected static ?string $heading = 'Memory Usage';
+    protected static ?string $heading = 'OPcache Memory Usage';
 
     protected static ?string $pollingInterval = '10s';
 

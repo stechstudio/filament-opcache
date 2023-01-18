@@ -6,7 +6,7 @@ use Appstract\Opcache\OpcacheFacade;
 
 class HitAmountWidget extends PercentageChart
 {
-    protected static ?string $heading = 'Hit Amount';
+    protected static ?string $heading = 'OPcache Hits';
 
     protected static ?string $pollingInterval = '10s';
 
