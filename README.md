@@ -1,6 +1,10 @@
 # OPcache for Filament
 This package allows you to view OPcache data from your Filament admin panel.
 
+```
+composer require stechstudio/filament-opcache
+```
+
 | Status Page |
 |---|
 | ![Status Page](/screenshots/Status.png) |
