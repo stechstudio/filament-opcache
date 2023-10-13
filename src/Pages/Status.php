@@ -3,7 +3,7 @@
 namespace STS\FilamentOpcache\Pages;
 
 use Appstract\Opcache\OpcacheFacade;
-use Carbon\Carbon;
+use Illuminate\Support\Carbon;
 use Filament\Notifications\Notification;
 use Filament\Pages\Actions\Action;
 use Filament\Pages\Page;
