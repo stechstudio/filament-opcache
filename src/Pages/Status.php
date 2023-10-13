@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace STS\FilamentOpcache\Pages;
 
 use Appstract\Opcache\OpcacheFacade;
 use Carbon\Carbon;
+use Filament\Actions\Action;
 use Filament\Notifications\Notification;
-use Filament\Pages\Actions\Action;
 use Filament\Pages\Page;
 use Illuminate\Support\Str;
 use STS\FilamentOpcache\Memory;
@@ -18,16 +20,17 @@ class Status extends Page
 
     protected static ?string $slug = 'opcache-status';
 
-    protected static ?string $navigationIcon = 'heroicon-o-database';
+    protected static ?string $navigationIcon = 'heroicon-o-cog';
 
-    protected static string $view = 'laravel-filament-opcache::status';
+    protected static string $view = 'filament-opcache::status';
 
     protected static ?string $navigationGroup = 'OPcache';
 
-    public $tabs = ['Lifecycle', 'Memory', 'Strings', 'Statistics', 'JIT'];
+    public array $tabs = ['Lifecycle', 'Memory', 'Strings', 'Statistics', 'JIT'];
 
-    public $activeTab = 'lifecycle';
+    public string $activeTab = 'lifecycle';
 
+    /** @noinspection DuplicatedCode */
     protected function getActions(): array
     {
         return [
@@ -59,16 +62,16 @@ class Status extends Page
         $status = OpcacheFacade::getStatus();
 
         return [
-            'lifecycle' => collect($status)
-                ->filter(fn($value, $key) => !is_array($value))
-                ->map(fn ($value) => $value ? 'true' : 'false'),
-            'memory' => collect($status['memory_usage'])
-                ->map(fn ($value, $key) => Str::contains($key, 'percentage') ?
+            'lifecycle'  => collect($status)
+                ->filter(fn($value, $key) => ! is_array($value))
+                ->map(fn($value) => $value ? 'true' : 'false'),
+            'memory'     => collect($status['memory_usage'])
+                ->map(fn($value, $key) => Str::contains($key, 'percentage') ?
                     number_format($value, 2) . '%' :
                     Memory::humanReadable($value)),
-            'strings' => collect($status['interned_strings_usage'])
-                ->map(fn ($value, $key) => Str::contains($key, 'number_of') ?
-                    number_format($value, 0) :
+            'strings'    => collect($status['interned_strings_usage'])
+                ->map(fn($value, $key) => Str::contains($key, 'number_of') ?
+                    number_format($value) :
                     Memory::humanReadable($value)),
             'statistics' => collect($status['opcache_statistics'])
                 ->map(function ($value, $key) {
@@ -84,16 +87,16 @@ class Status extends Page
                         return (string)(new Carbon($value));
                     }
 
-                    return number_format($value, 0);
+                    return number_format($value);
                 }),
-            'jit' => collect($status['jit'])
-                ->map(function ($value, $key) {
+            'jit'        => collect($status['jit'])
+                ->map(function ($value) {
                     if (is_bool($value)) {
                         return $value ? 'true' : 'false';
                     }
 
-                    return number_format($value, 0);
-                })
+                    return number_format($value);
+                }),
         ];
     }
 }

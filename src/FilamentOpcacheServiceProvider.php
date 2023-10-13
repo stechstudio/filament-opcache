@@ -1,28 +1,17 @@
 <?php
 
+declare(strict_types=1);
+
 namespace STS\FilamentOpcache;
 
-use Filament\PluginServiceProvider;
 use Spatie\LaravelPackageTools\Package;
-use STS\FilamentOpcache\Pages;
-use STS\FilamentOpcache\Widgets;
+use Spatie\LaravelPackageTools\PackageServiceProvider;
 
-class FilamentOpcacheServiceProvider extends PluginServiceProvider
+class FilamentOpcacheServiceProvider extends PackageServiceProvider
 {
-    protected array $pages = [
-        Pages\Config::class,
-        Pages\Status::class,
-    ];
-
-    protected array $widgets = [
-        Widgets\OpcacheHitsWidget::class,
-        Widgets\OpcacheMemoryWidget::class,
-    ];
-
     public function configurePackage(Package $package): void
     {
-        $package
-            ->name('laravel-filament-opcache')
-            ->hasViews('laravel-filament-opcache');
+        $package->name('filament-opcache')
+            ->hasViews('filament-opcache');
     }
 }
