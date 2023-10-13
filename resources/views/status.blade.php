@@ -23,7 +23,7 @@
 
                     @foreach($$activeTab as $key => $value)
                         <x-filament-tables::row>
-                            <x-filament-tables::cell class="px-4 py-1"></x-filament-tables::cell>
+                            <x-filament-tables::cell class="px-4 py-1">{{ $key }}</x-filament-tables::cell>
                             <x-filament-tables::cell class="px-4 py-1">{{ $value }}</x-filament-tables::cell>
                         </x-filament-tables::row>
                     @endforeach

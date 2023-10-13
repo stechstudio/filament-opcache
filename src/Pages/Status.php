@@ -1,13 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
 namespace STS\FilamentOpcache\Pages;
 
 use Appstract\Opcache\OpcacheFacade;
 use Carbon\Carbon;
-use Filament\Pages\Actions\Action;
 use Filament\Notifications\Notification;
+use Filament\Pages\Actions\Action;
 use Filament\Pages\Page;
 use Illuminate\Support\Str;
 use STS\FilamentOpcache\Memory;
