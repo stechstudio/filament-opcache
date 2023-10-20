@@ -5,7 +5,7 @@ This package allows you to view OPcache data from your Filament admin panel.
 composer require stechstudio/filament-opcache
 ```
 
-In your `AdminPanelProvider` (or other `PanelProvider`), add this package to your plugins:
+In your `AdminPanelProvider` (or other `\Filament\PanelProvider`), add this package to your plugins:
 ```php
 $panel
     ->plugins([
