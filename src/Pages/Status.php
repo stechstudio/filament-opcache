@@ -18,7 +18,7 @@ class Status extends Page
 
     protected static ?string $slug = 'opcache-status';
 
-    protected static ?string $navigationIcon = 'heroicon-o-cog';
+    protected static ?string $navigationIcon = 'heroicon-o-circle-stack';
 
     protected static string $view = 'filament-opcache::status';
 

@@ -9,9 +9,12 @@ use Spatie\LaravelPackageTools\PackageServiceProvider;
 
 class FilamentOpcacheServiceProvider extends PackageServiceProvider
 {
+    public static string $name = 'filament-opcache';
+
     public function configurePackage(Package $package): void
     {
-        $package->name('filament-opcache')
-            ->hasViews('filament-opcache');
+        $package
+            ->name(static::$name)
+            ->hasViews();
     }
 }
