@@ -19,9 +19,9 @@
         }
     ],
     "require": {
-        "php": "^8.0",
+        "filament/filament": "^3.0",
         "appstract/laravel-opcache": "^4.0.2",
-        "illuminate/support": "^10.0"
+        "nesbot/carbon": "^2.0"
     },
     "extra": {
         "laravel": {
