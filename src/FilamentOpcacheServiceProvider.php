@@ -2,12 +2,12 @@
 
 namespace STS\FilamentOpcache;
 
-use Filament\PluginServiceProvider;
 use Spatie\LaravelPackageTools\Package;
+use Spatie\LaravelPackageTools\PackageServiceProvider;
 use STS\FilamentOpcache\Pages;
 use STS\FilamentOpcache\Widgets;
 
-class FilamentOpcacheServiceProvider extends PluginServiceProvider
+class FilamentOpcacheServiceProvider extends PackageServiceProvider
 {
     protected array $pages = [
         Pages\Config::class,
