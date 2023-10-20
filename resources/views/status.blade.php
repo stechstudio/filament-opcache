@@ -14,21 +14,21 @@
         </div>
 
         <div wire:poll.10s>
-            <x-tables::container>
-                <x-tables::table>
+            <x-filament-tables::container>
+                <x-filament-tables::table>
                     <x-slot name="header">
-                        <x-tables::header-cell width="50%">Key</x-tables::header-cell>
-                        <x-tables::header-cell>Value</x-tables::header-cell>
+                        <x-filament-tables::header-cell>Key</x-filament-tables::header-cell>
+                        <x-filament-tables::header-cell>Value</x-filament-tables::header-cell>
                     </x-slot>
 
                     @foreach($$activeTab as $key => $value)
-                        <x-tables::row>
-                            <x-tables::cell class="px-4 py-1">{{ $key }}</x-tables::cell>
-                            <x-tables::cell class="px-4 py-1">{{ $value }}</x-tables::cell>
-                        </x-tables::row>
+                        <x-filament-tables::row>
+                            <x-filament-tables::cell class="px-4 py-1">{{ $key }}</x-filament-tables::cell>
+                            <x-filament-tables::cell class="px-4 py-1">{{ $value }}</x-filament-tables::cell>
+                        </x-filament-tables::row>
                     @endforeach
-                </x-tables::table>
-            </x-tables::container>
+                </x-filament-tables::table>
+            </x-filament-tables::container>
         </div>
     </div>
 </x-filament::page>
