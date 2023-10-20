@@ -1,10 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace STS\FilamentOpcache\Pages;
 
 use Appstract\Opcache\OpcacheFacade;
+use Filament\Actions\Action;
 use Filament\Notifications\Notification;
-use Filament\Pages\Actions\Action;
 use Filament\Pages\Page;
 
 class Config extends Page
@@ -17,14 +19,15 @@ class Config extends Page
 
     protected static ?string $navigationIcon = 'heroicon-o-cog';
 
-    protected static string $view = 'laravel-filament-opcache::status';
+    protected static string $view = 'filament-opcache::status';
 
     protected static ?string $navigationGroup = 'OPcache';
 
-    public $tabs = ['Directives', 'Version', 'Blacklist'];
+    public array $tabs = ['Directives', 'Version', 'Blacklist'];
 
-    public $activeTab = 'directives';
+    public string $activeTab = 'directives';
 
+    /** @noinspection DuplicatedCode */
     protected function getActions(): array
     {
         return [
@@ -57,15 +60,15 @@ class Config extends Page
 
         return [
             'directives' => collect($config['directives'])
-                ->map(function ($value, $key) {
+                ->map(function ($value) {
                     if (is_bool($value)) {
                         return $value ? 'true' : 'false';
                     }
 
                     return (string)$value;
                 }),
-            'version' => collect($config['version']),
-            'blacklist' => collect($config['blacklist'])
+            'version'    => collect($config['version']),
+            'blacklist'  => collect($config['blacklist']),
         ];
     }
 }

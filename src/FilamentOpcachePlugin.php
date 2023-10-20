@@ -7,6 +7,11 @@ use Filament\Panel;
 
 class FilamentOpcachePlugin implements Plugin
 {
+    public static function make(): static
+    {
+        return app(static::class);
+    }
+
     public function getId(): string
     {
         return 'filament-opcache';
@@ -27,10 +32,6 @@ class FilamentOpcachePlugin implements Plugin
 
     public function boot(Panel $panel): void
     {
-    }
-
-    public static function make(): static
-    {
-        return app(static::class);
+        //
     }
 }

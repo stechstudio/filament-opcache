@@ -1,28 +1,32 @@
 <?php
 
+declare(strict_types=1);
+
 namespace STS\FilamentOpcache\Widgets;
 
-abstract class PercentageChart extends \Filament\Widgets\PieChartWidget
+use Filament\Widgets\PieChartWidget;
+
+abstract class PercentageChart extends PieChartWidget
 {
     protected function chartDataFor($title, $labelA, $valueA, $labelB, $valueB): array
     {
         return [
-            'labels' => [
+            'labels'   => [
                 $labelA . ' ' . $this->percentage($valueA, $valueA + $valueB),
                 $labelB . ' ' . $this->percentage($valueB, $valueA + $valueB),
             ],
-            'datasets' =>[
+            'datasets' => [
                 [
-                    'label' => $title,
-                    'data' => [
+                    'label'           => $title,
+                    'data'            => [
                         $valueA,
                         $valueB,
                     ],
                     'backgroundColor' => [
                         '#1c3d5a',
-                        '#8795a1'
+                        '#8795a1',
                     ],
-                ]
+                ],
             ],
         ];
     }

@@ -1,8 +1,9 @@
 <?php
 
+declare(strict_types=1);
+
 namespace STS\FilamentOpcache;
 
-use Filament\Panel;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
