@@ -44,8 +44,8 @@ abstract class Page extends FilamentPage
                     $result = OpcacheFacade::compile(true);
 
                     Notification::make()
-                        ->title(__('filament-opcache::notifications.compile.title'))
-                        ->body(__('filament-opcache::notifications.compile.body', $result))
+                        ->title(__('filament-opcache::notifications.compiled.title'))
+                        ->body(__('filament-opcache::notifications.compiled.body', $result))
                         ->success()
                         ->send();
                 }),
