@@ -21,7 +21,7 @@
     "require": {
         "filament/filament": "^3.0",
         "appstract/laravel-opcache": "^4.0.2",
-        "nesbot/carbon": "^2.0|3.0"
+        "nesbot/carbon": "^2.0|^3.0"
     },
     "extra": {
         "laravel": {
