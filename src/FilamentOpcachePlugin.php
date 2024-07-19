@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace STS\FilamentOpcache;
 
 use Filament\Contracts\Plugin;

@@ -8,8 +8,6 @@ use Appstract\Opcache\OpcacheFacade;
 
 class OpcacheMemoryWidget extends PercentageChart
 {
-    protected static ?string $heading = 'OPcache Memory Usage';
-
     protected static ?string $pollingInterval = '10s';
 
     protected static ?string $maxHeight = '200px';
@@ -19,8 +17,8 @@ class OpcacheMemoryWidget extends PercentageChart
         $status = OpcacheFacade::getStatus();
 
         return $this->chartDataFor('Memory',
-            'Used', $status['memory_usage']['used_memory'],
-            'Free', $status['memory_usage']['free_memory']
+            __('filament-opcache::widgets.memory.categories.used'), $status['memory_usage']['used_memory'],
+            __('filament-opcache::widgets.memory.categories.free'), $status['memory_usage']['free_memory']
         );
     }
 }
