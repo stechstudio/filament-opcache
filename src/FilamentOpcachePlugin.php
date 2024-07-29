@@ -6,7 +6,6 @@ namespace STS\FilamentOpcache;
 
 use Filament\Contracts\Plugin;
 use Filament\Panel;
-use Illuminate\Support\Facades\Log;
 
 class FilamentOpcachePlugin implements Plugin
 {
@@ -22,19 +21,15 @@ class FilamentOpcachePlugin implements Plugin
 
     public function register(Panel $panel): void
     {
-        if (function_exists('opcache_get_status')) {
-            $panel
-                ->pages([
-                    Pages\Config::class,
-                    Pages\Status::class,
-                ])
-                ->widgets([
-                    Widgets\OpcacheHitsWidget::class,
-                    Widgets\OpcacheMemoryWidget::class,
-                ]);
-        } else {
-            Log::warning('FilamentOpcachePlugin will not work because OpCache is disabled in php.ini');
-        }
+        $panel
+            ->pages([
+                Pages\Config::class,
+                Pages\Status::class,
+            ])
+            ->widgets([
+                Widgets\OpcacheHitsWidget::class,
+                Widgets\OpcacheMemoryWidget::class,
+            ]);
     }
 
     public function boot(Panel $panel): void
