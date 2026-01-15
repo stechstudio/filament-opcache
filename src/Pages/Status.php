@@ -1,21 +1,16 @@
 <?php
 
+declare(strict_types=1);
+
 namespace STS\FilamentOpcache\Pages;
 
 use Appstract\Opcache\OpcacheFacade;
 use Carbon\Carbon;
-use Filament\Notifications\Notification;
-use Filament\Pages\Actions\Action;
-use Filament\Pages\Page;
 use Illuminate\Support\Str;
 use STS\FilamentOpcache\Memory;
 
 class Status extends Page
 {
-    protected static ?string $title = 'OPcache Status';
-
-    protected static ?string $navigationLabel = 'Status';
-
     protected static ?string $slug = 'opcache-status';
 
     protected static ?string $navigationIcon = 'heroicon-o-circle-stack';
@@ -24,36 +19,9 @@ class Status extends Page
 
     protected static ?string $navigationGroup = 'OPcache';
 
-    public array $tabs = ['Lifecycle', 'Memory', 'Strings', 'Statistics', 'JIT'];
+    public array $tabs = ['lifecycle', 'memory', 'strings', 'statistics', 'jit'];
 
     public string $activeTab = 'lifecycle';
-
-    /** @noinspection DuplicatedCode */
-    protected function getActions(): array
-    {
-        return [
-            Action::make('compile')
-                ->label('Compile Scripts')
-                ->action(function () {
-                    $result = OpcacheFacade::compile(true);
-
-                    Notification::make()
-                        ->title('Scripts Compiled')
-                        ->body($result['compiled_count'] . ' files compiled successfully.')
-                        ->success()
-                        ->send();
-                }),
-            Action::make('clear')
-                ->label('Clear OPcache')
-                ->action(function () {
-                    if (OpcacheFacade::clear()) {
-                        Notification::make()->title('OPcache Cleared')->success()->send();
-                    } else {
-                        Notification::make()->title('OPcache Disabled')->warning()->send();
-                    }
-                }),
-        ];
-    }
 
     protected function getViewData(): array
     {

@@ -7,7 +7,7 @@
                         :active="strtolower($tab) == $activeTab"
                         wire:click="$set('activeTab', '{{ strtolower($tab) }}')"
                     >
-                        {{ $tab }}
+                        {{ __("filament-opcache::tabs.$tab") }}
                     </x-filament::tabs.item>
                 @endforeach
             </x-filament::tabs>
@@ -17,8 +17,8 @@
             <x-filament-tables::container>
                 <x-filament-tables::table>
                     <x-slot name="header">
-                        <x-filament-tables::header-cell>Key</x-filament-tables::header-cell>
-                        <x-filament-tables::header-cell>Value</x-filament-tables::header-cell>
+                        <x-filament-tables::header-cell>{{ __('filament-opcache::table.headers.key') }}</x-filament-tables::header-cell>
+                        <x-filament-tables::header-cell>{{ __('filament-opcache::table.headers.value') }}</x-filament-tables::header-cell>
                     </x-slot>
 
                     @foreach($$activeTab as $key => $value)
