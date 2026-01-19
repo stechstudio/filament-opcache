@@ -17,11 +17,11 @@ class Config extends Page
 
     protected static ?string $slug = 'opcache-config';
 
-    protected static ?string $navigationIcon = 'heroicon-o-cog';
+    protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-cog';
 
-    protected static string $view = 'filament-opcache::status';
+    protected string $view = 'filament-opcache::status';
 
-    protected static ?string $navigationGroup = 'OPcache';
+    protected static string | \UnitEnum | null $navigationGroup = 'OPcache';
 
     public array $tabs = ['Directives', 'Version', 'Blacklist'];
 

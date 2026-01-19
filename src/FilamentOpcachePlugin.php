@@ -2,6 +2,10 @@
 
 namespace STS\FilamentOpcache;
 
+use STS\FilamentOpcache\Pages\Config;
+use STS\FilamentOpcache\Pages\Status;
+use STS\FilamentOpcache\Widgets\OpcacheHitsWidget;
+use STS\FilamentOpcache\Widgets\OpcacheMemoryWidget;
 use Filament\Contracts\Plugin;
 use Filament\Panel;
 
@@ -21,12 +25,12 @@ class FilamentOpcachePlugin implements Plugin
     {
         $panel
             ->pages([
-                Pages\Config::class,
-                Pages\Status::class,
+                Config::class,
+                Status::class,
             ])
             ->widgets([
-                Widgets\OpcacheHitsWidget::class,
-                Widgets\OpcacheMemoryWidget::class,
+                OpcacheHitsWidget::class,
+                OpcacheMemoryWidget::class,
             ]);
     }
 
