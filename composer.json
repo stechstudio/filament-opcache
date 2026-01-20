@@ -29,8 +29,5 @@
                 "STS\\FilamentOpcache\\FilamentOpcacheServiceProvider"
             ]
         }
-    },
-    "require-dev": {
-        "filament/upgrade": "^4.0"
     }
 }
