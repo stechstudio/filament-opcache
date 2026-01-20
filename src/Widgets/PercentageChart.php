@@ -4,21 +4,26 @@ declare(strict_types=1);
 
 namespace STS\FilamentOpcache\Widgets;
 
-use Filament\Widgets\PieChartWidget;
+use Filament\Widgets\ChartWidget;
 
-abstract class PercentageChart extends PieChartWidget
+abstract class PercentageChart extends ChartWidget
 {
+    protected function getType(): string
+    {
+        return 'pie';
+    }
+
     protected function chartDataFor($title, $labelA, $valueA, $labelB, $valueB): array
     {
         return [
-            'labels'   => [
+            'labels' => [
                 $labelA . ' ' . $this->percentage($valueA, $valueA + $valueB),
                 $labelB . ' ' . $this->percentage($valueB, $valueA + $valueB),
             ],
             'datasets' => [
                 [
-                    'label'           => $title,
-                    'data'            => [
+                    'label' => $title,
+                    'data' => [
                         $valueA,
                         $valueB,
                     ],
