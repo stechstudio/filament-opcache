@@ -7,7 +7,7 @@ export default defineConfig({
             output: {
                 dir: 'dist',
                 entryFileNames: '[name].js',
-                assetFileNames: 'filament-opcache.css',
+                assetFileNames: 'theme.css',
             },
         },
         emptyOutDir: false,
