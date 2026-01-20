@@ -14,21 +14,25 @@
         </div>
 
         <div wire:poll.10s>
-            <x-filament-tables::container>
-                <x-filament-tables::table>
-                    <x-slot name="header">
-                        <x-filament-tables::header-cell>Key</x-filament-tables::header-cell>
-                        <x-filament-tables::header-cell>Value</x-filament-tables::header-cell>
-                    </x-slot>
+            <x-filament::card>
+                <table class="min-w-full divide-y divide-gray-200">
+                    <thead class="bg-gray-50">
+                        <tr>
+                            <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Key</th>
+                            <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Value</th>
+                        </tr>
+                    </thead>
 
-                    @foreach($$activeTab as $key => $value)
-                        <x-filament-tables::row>
-                            <x-filament-tables::cell class="px-4 py-1">{{ $key }}</x-filament-tables::cell>
-                            <x-filament-tables::cell class="px-4 py-1">{{ $value }}</x-filament-tables::cell>
-                        </x-filament-tables::row>
-                    @endforeach
-                </x-filament-tables::table>
-            </x-filament-tables::container>
+                    <tbody class="bg-white divide-y divide-gray-200">
+                        @foreach($activeTab as $key => $value)
+                            <tr>
+                                <td class="px-4 py-1">{{ $key }}</td>
+                                <td class="px-4 py-1">{{ $value }}</td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </x-filament::card>
         </div>
     </div>
 </x-filament::page>
