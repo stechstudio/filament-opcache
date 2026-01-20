@@ -16,7 +16,11 @@ class FilamentOpcacheServiceProvider extends PackageServiceProvider
     {
         parent::boot();
 
-        Filament::registerTheme(asset('vendor/stechstudio/filament-opcache/dist/filament-opcache.css'));
+        $this->publishes([
+            __DIR__ . '/../dist/filament-opcache.css' => public_path('vendor/filament-opcache/filament-opcache.css'),
+        ], 'filament-opcache');
+
+        Filament::registerTheme(asset('vendor/filament-opcache/filament-opcache.css'));
     }
 
     public function configurePackage(Package $package): void
