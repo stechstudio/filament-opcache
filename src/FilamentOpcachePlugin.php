@@ -32,8 +32,8 @@ class FilamentOpcachePlugin implements Plugin
             ->widgets([
                 OpcacheHitsWidget::class,
                 OpcacheMemoryWidget::class,
-            ])
-            ->viteTheme('vendor/stechstudio/filament-opcache/resources/css/theme.css');
+            ]);
+            // ->viteTheme('vendor/stechstudio/filament-opcache/resources/css/theme.css')
     }
 
     public function boot(Panel $panel): void
