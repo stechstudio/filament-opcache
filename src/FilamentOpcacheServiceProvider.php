@@ -17,7 +17,7 @@ class FilamentOpcacheServiceProvider extends PackageServiceProvider
         parent::boot();
 
         $this->publishes([
-            __DIR__ . '/../dist/filament-opcache.css' => public_path('vendor/filament-opcache/theme.css'),
+            __DIR__ . '/../dist/theme.css' => public_path('vendor/filament-opcache/theme.css'),
         ], 'filament-opcache');
 
         Filament::registerTheme(asset('vendor/filament-opcache/theme.css'));
