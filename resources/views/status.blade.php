@@ -14,6 +14,8 @@
         </div>
 
         <div wire:poll.10s>
+            <h1 class="bg-red-500">Test</h1>
+
             <x-filament::card>
                 <table class="min-w-full divide-y divide-gray-200">
                     <thead class="bg-gray-50">
