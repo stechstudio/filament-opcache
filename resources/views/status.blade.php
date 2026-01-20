@@ -24,7 +24,7 @@
                     </thead>
 
                     <tbody class="bg-white divide-y divide-gray-200">
-                        @foreach($activeTab as $key => $value)
+                        @foreach($$activeTab as $key => $value)
                             <tr>
                                 <td class="px-4 py-1">{{ $key }}</td>
                                 <td class="px-4 py-1">{{ $value }}</td>
