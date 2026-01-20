@@ -9,6 +9,8 @@ use Filament\Notifications\Notification;
 use Filament\Pages\Page;
 use Illuminate\Support\Str;
 use STS\FilamentOpcache\Memory;
+use UnitEnum;
+use BackedEnum;
 
 class Status extends Page
 {
@@ -18,11 +20,11 @@ class Status extends Page
 
     protected static ?string $slug = 'opcache-status';
 
-    protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-circle-stack';
+    protected static string | BackedEnum | null $navigationIcon = 'heroicon-o-circle-stack';
 
     protected string $view = 'filament-opcache::status';
 
-    protected static string | \UnitEnum | null $navigationGroup = 'OPcache';
+    protected static string | UnitEnum | null $navigationGroup = 'OPcache';
 
     public array $tabs = ['Lifecycle', 'Memory', 'Strings', 'Statistics', 'JIT'];
 
