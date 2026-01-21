@@ -13,6 +13,14 @@ $panel
     ])
 ```
 
+> Filament v4 requires you [create a custom theme](https://filamentphp.com/docs/4.x/styling/overview#creating-a-custom-theme) to support a package's additional Tailwind classes. Be sure to follow those instructions before continuing with this step.
+
+In `resources/css/filament/admin/theme.css`, import the package's CSS:
+
+```css
+@import '../../../../vendor/stechstudio/filament-opcache/dist/theme.css';
+```
+
 | Status Page |
 |---|
 | ![Status Page](/screenshots/Status.png) |

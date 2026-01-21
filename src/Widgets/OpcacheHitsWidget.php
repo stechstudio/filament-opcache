@@ -8,11 +8,11 @@ use Appstract\Opcache\OpcacheFacade;
 
 class OpcacheHitsWidget extends PercentageChart
 {
-    protected static ?string $heading = 'OPcache Hits';
+    protected ?string $heading = 'OPcache Hits';
 
-    protected static ?string $pollingInterval = '10s';
+    protected ?string $pollingInterval = '10s';
 
-    protected static ?string $maxHeight = '200px';
+    protected ?string $maxHeight = '200px';
 
     protected function getData(): array
     {

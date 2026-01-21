@@ -6,6 +6,7 @@ namespace STS\FilamentOpcache;
 
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
+use Filament\Facades\Filament;
 
 class FilamentOpcacheServiceProvider extends PackageServiceProvider
 {

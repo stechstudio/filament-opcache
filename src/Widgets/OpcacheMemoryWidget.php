@@ -8,11 +8,11 @@ use Appstract\Opcache\OpcacheFacade;
 
 class OpcacheMemoryWidget extends PercentageChart
 {
-    protected static ?string $heading = 'OPcache Memory Usage';
+    protected ?string $heading = 'OPcache Memory Usage';
 
-    protected static ?string $pollingInterval = '10s';
+    protected ?string $pollingInterval = '10s';
 
-    protected static ?string $maxHeight = '200px';
+    protected ?string $maxHeight = '200px';
 
     protected function getData(): array
     {
