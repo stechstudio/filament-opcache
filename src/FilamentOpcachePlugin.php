@@ -8,7 +8,6 @@ use STS\FilamentOpcache\Widgets\OpcacheHitsWidget;
 use STS\FilamentOpcache\Widgets\OpcacheMemoryWidget;
 use Filament\Contracts\Plugin;
 use Filament\Panel;
-use Filament\Support\Colors\Color;
 
 class FilamentOpcachePlugin implements Plugin
 {
